@@ -7,10 +7,6 @@ library(Rcpp)
 
 library(RcppArmadillo)
 
-library(expectreg)
-
-library(microbenchmark)
-
 library(evt0)
 
 #The following function computes the expectile empirical c.s.f.
