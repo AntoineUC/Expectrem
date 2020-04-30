@@ -11,6 +11,4 @@ Encoding: UTF-8
 LazyData: true
 Imports: 
     evt0,
-    Rcpp,
-    RcppArmadillo,
     stats
