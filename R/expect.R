@@ -1,5 +1,5 @@
 
-expectile=function (x, probs = seq(0, 1, 0.25), dec = 4) 
+expect=function (x, probs = seq(0, 1, 0.25), dec = 4) 
 {
   if (!is.vector(x)) 
     stop("observations are needed in vector form.")
