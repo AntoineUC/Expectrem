@@ -9,14 +9,10 @@
 This function computes the theoretical expectiles of the normal distribution.
 }
 \usage{
-enorm(X, probs, mu = 0, sigma = 1, niter = 20)
+enorm(probs, mu = 0, sigma = 1, niter = 20)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{X}{
-%%     ~~Describe \code{X} here~~
-Data vector.
-}
   \item{probs}{
 %%     ~~Describe \code{probs} here~~
 Numeric vector of probabilities with values in [0,1].
