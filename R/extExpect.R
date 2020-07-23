@@ -33,7 +33,7 @@ extExpect=function(X,k,tau,estim="Hill",br=FALSE){
   rbet=(1-mean(X)/(qtp*(k/(n*(1-tau)))^(gammahat)))*(1/(2*tau-1))*(1+mopest$beta*gammahat*(1/gammahat-1)^(-mopest$rho)*(1-tau)^(-mopest$rho)/(gammahat*(1-mopest$rho-gammahat)))^(-1)
 
   if(br==FALSE){
-  return(qtp(k/(n*(1-tau)))^gammahat)
+  return(qtp*(k/(n*(1-tau)))^gammahat)
   }
 
   if(br==TRUE){
