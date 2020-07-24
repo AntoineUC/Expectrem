@@ -23,7 +23,7 @@ extQuant=function(X,k,tau,estim="Hill",br=FALSE){
     gammahat=mop(X[which(X>0)], 1:(length(which(X>0))-1), 0, method ="MOP")$EVI[k]
   }
   if(estim=="tindexp"){
-    gammahat=tindexp(X,k,br)
+    gammahat=tindexp(X[which(X>0)],k,br)
   }
   if(br==FALSE){
     return(quantile(X,1-k/n)*(k/(n*(1-tau)))^gammahat)
