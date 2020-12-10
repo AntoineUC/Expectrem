@@ -1,6 +1,17 @@
-extQuant=function(X,k,tau,estim="Hill",br=FALSE){
+extQuant=function(X,k="kopt",tau,estim="Hill",br=FALSE){
 
   n=length(X)
+
+  mopest=mop(X[which(X>0)], 1:(length(which(X>0))-1), 0, method ="RBMOP")
+
+  if(k=="kopt" && estim=="Hill"){
+    k=trunc(((1-mopest$rho)^2/(-2*mopest$rho*mopest$beta^2))^(1/(1-2*mopest$rho))*n^(-2*mopest$rho/(1-2*mopest$rho)))
+  }
+
+  if(k=="kopt" && estim=="tindexp"){
+    k=trunc(((1-mopest$rho)^2/(-2*mopest$rho*mopest$beta^2))^(1/(1-2*mopest$rho))*n^(-2*mopest$rho/(1-2*mopest$rho)))
+    k=min(trunc(((1/mopest$EVI[k]-1)^(2*mopest$rho-1)*(1-mopest$EVI[k]-mopest$rho)^2/(-2*mopest$rho*mopest$beta^2*abs(1-2*mopest$EVI[k])))^(1/(1-2*mopest$rho))*n^(-2*mopest$rho/(1-2*mopest$rho))),trunc(n/2)-1)
+  }
 
   if(k>n-1 || k<1){
     stop("k must be between 1 and n-1.")
@@ -13,8 +24,6 @@ extQuant=function(X,k,tau,estim="Hill",br=FALSE){
   if(!is.logical(br)){
     stop("br must be boolean.")
   }
-
-  mopest=mop(X[which(X>0)], 1:(length(which(X>0))-1), 0, method ="RBMOP")
 
   if(estim=="Hill" && br==TRUE){
     gammahat=mopest$EVI[k]
