@@ -9,7 +9,7 @@
 This function computes the Weissman-type estimator for extreme expectiles.
 }
 \usage{
-extExpect(X, k, tau, estim = "Hill", br = FALSE)
+extExpect(X, k="kopt", tau, estim = "Hill", method="direct", br = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -19,7 +19,7 @@ Data vector.
 }
   \item{k}{
 %%     ~~Describe \code{k} here~~
-A vector of number of upper order statistics.
+A vector of number of upper order statistics. Default: optimal k given in Girard et al. (2020).
 }
   \item{tau}{
 %%     ~~Describe \code{tau} here~~
@@ -28,6 +28,10 @@ Numeric (extreme) probability with value in [0,1].
   \item{estim}{
 %%     ~~Describe \code{estim} here~~
 Tail index estimator used : Hill estimator ("Hill", default) or proportionality estimator ("tindexp").
+}
+  \item{method}{
+%%     ~~Describe \code{estim} here~~
+Direct or indirect (quantile based) estimator.
 }
 \item{br}{
 Bias reduced version if TRUE. Default: FALSE.
@@ -46,6 +50,7 @@ Bias reduced version if TRUE. Default: FALSE.
 \references{
 %% ~put references to the literature/web site here ~
 Daouia, A., Girard, S., and Stupfler, G.  (2018). Estimation of tail risk based on extreme expectiles. Journal of the Royal Statistical Society: Series B, 80(2): 263-292.
+Girard, S., Stupfler, G., and Usseglio-Carleve, A. (2020). On second-order automatic bias reduction for extreme expectile estimation, preprint.
 }
 \author{
 %%  ~~who you are~~

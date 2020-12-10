@@ -9,7 +9,7 @@
 This function computes the proportionality estimator of the extreme value index.
 }
 \usage{
-tindexp(X, k, br = FALSE)
+tindexp(X, k="kopt", br = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -19,7 +19,7 @@ Data vector.
 }
   \item{k}{
 %%     ~~Describe \code{k} here~~
-A vector of number of upper order statistics.
+A vector of number of upper order statistics. Default: optimal k given in Girard et al. (2020).
 }
 \item{br}{
 %%     ~~Describe \code{k} here~~
@@ -41,6 +41,7 @@ A vector of k estimates of the tail index.
 \references{
 %% ~put references to the literature/web site here ~
 Girard, S., Stupfler, G., and Usseglio-Carleve, A. (2019). Nonparametric extreme conditional expectile estimation, preprint. https://hal.archives-ouvertes.fr/hal-02114255.
+Girard, S., Stupfler, G., and Usseglio-Carleve, A. (2020). On second-order automatic bias reduction for extreme expectile estimation, preprint.
 }
 \author{
 %%  ~~who you are~~
