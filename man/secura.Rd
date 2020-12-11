@@ -22,6 +22,5 @@ Beirlant, Dierckx, Goegebeur and Matthys (2004) Statistics of Extremes, Wiley.%%
 }
 \examples{
 data(secura)
-## maybe str(secura) ; plot(secura) ...
 }
 \keyword{datasets}
