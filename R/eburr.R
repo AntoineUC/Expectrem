@@ -1,4 +1,4 @@
-eburr=function(probs,gamma=0.5,rho=-1){
+eburr=function(probs,gamma=0.5,rho=-1,method="mc"){
   
   if (min(probs) < 0 || max(probs) > 1){
     stop("only asymmetries between 0 and 1 allowed.")
@@ -10,6 +10,10 @@ eburr=function(probs,gamma=0.5,rho=-1){
   
   if(rho>0){
     stop("rho must be negative.")
+  }
+  
+  if(method!="mc" && method!="uniroot"){
+    stop("method must be either mc or uniroot.")
   }
   
    fy=function(y){
@@ -25,6 +29,12 @@ eburr=function(probs,gamma=0.5,rho=-1){
      return(uniroot(fun,c(0,100000))$root)
    }
    
-   return(mapply(find_root,probs))
+   if(method=="uniroot"){
+     return(mapply(find_root,probs))
+   }
+   
+   if(method=="mc"){
+     return(expect(((1-runif(10000000))^rho-1)^(-gamma/rho),probs))
+   }
    
 }

@@ -1,4 +1,4 @@
-egpd=function(probs,gamma=0.5){
+egpd=function(probs,gamma=0.5,method="mc"){
   
   if (min(probs) < 0 || max(probs) > 1){
     stop("only asymmetries between 0 and 1 allowed.")
@@ -6,6 +6,10 @@ egpd=function(probs,gamma=0.5){
   
   if(gamma<=0 || gamma>=1){
     stop("gamma must be strictly between 0 and 1.")
+  }
+  
+  if(method!="mc" && method!="uniroot"){
+    stop("method must be either mc or uniroot.")
   }
   
   fy=function(y){
@@ -21,6 +25,11 @@ egpd=function(probs,gamma=0.5){
     return(uniroot(fun,c(0,100000))$root)
   }
   
-  return(mapply(find_root,probs))
+  if(method=="uniroot"){
+    return(mapply(find_root,probs))
+  }
   
+  if(method=="mc"){
+    return(expect(((1-runif(10000000))^(-gamma)-1)/gamma,probs))
+  }
 }
