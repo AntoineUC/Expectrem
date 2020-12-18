@@ -12,10 +12,6 @@ egpd=function(probs,gamma=0.5,method="uniroot"){
     stop("method must be either mc or uniroot.")
   }
   
-  fy=function(y){
-    return((1+y*gamma)^(-1/gamma))
-  } 
-  
   find_root=function(tau){
     fun=function(e){
       psi1=(1+gamma*e)^(1-1/gamma)/(1-gamma)
