@@ -8,7 +8,7 @@
 This function computes the theoretical expectiles of the Generalized Pareto Distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-egpd(probs, gamma=0.5,method="mc")
+egpd(probs, gamma=0.5,method="uniroot")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -19,7 +19,7 @@ Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} 
 Tail index parameter in (0,1). Default: 0.5.
 }
 \item{method}{
-Monte-Carlo approximation (mc, default) or numerical approximation (uniroot).
+Monte-Carlo approximation (mc) or numerical approximation (uniroot, default).
 }
 }
 \details{
