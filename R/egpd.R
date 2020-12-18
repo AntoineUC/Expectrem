@@ -1,4 +1,4 @@
-egpd=function(probs,gamma=0.5,method="mc"){
+egpd=function(probs,gamma=0.5,method="uniroot"){
   
   if (min(probs) < 0 || max(probs) > 1){
     stop("only asymmetries between 0 and 1 allowed.")
@@ -18,11 +18,11 @@ egpd=function(probs,gamma=0.5,method="mc"){
   
   find_root=function(tau){
     fun=function(e){
-      psi1=integrate(fy,e,Inf)$value
+      psi1=(1+gamma*e)^(1-1/gamma)/(1-gamma)
       return(psi1/(2*psi1+e-1/(1-gamma))-1+tau)
     } 
     
-    return(uniroot(fun,c(0,100000))$root)
+    return(uniroot(fun,c(0,10000000))$root)
   }
   
   if(method=="uniroot"){
