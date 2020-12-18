@@ -19,7 +19,7 @@ Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} 
 Tail index parameter in (0,1). Default: 0.5.
 }
 \item{method}{
-Monte-Carlo approximation (mc) or numerical approximation (uniroot, default).
+Monte-Carlo (mc) or numerical approximation (uniroot, default).
 }
 }
 \details{
