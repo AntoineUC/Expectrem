@@ -1,14 +1,14 @@
-\name{egpd}
-\alias{egpd}
+\name{epareto}
+\alias{epareto}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Expectiles of Generalized Pareto Distribution
+\title{Expectiles of Pareto distribution
 %%  ~~function to do ... ~~
 }
 \description{
-This function computes the theoretical expectiles of the Generalized Pareto Distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function computes the theoretical expectiles of the Pareto distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-egpd(probs, gamma=0.5)
+epareto(probs, gamma=0.5)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -20,7 +20,7 @@ Tail index parameter in (0,1). Default: 0.5.
 }
 }
 \details{
-The considered GPD has c.s.f. (1+ gamma y)^(-1/gamma).%%  ~~ If necessary, more details than the description above ~~
+The considered distribution has c.s.f. y^(-1/gamma).%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
@@ -50,4 +50,4 @@ Antoine Usseglio-Carleve%%  ~~who you are~~
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ ~expectiles }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~gpd }% __ONLY ONE__ keyword per line
+\keyword{ ~pareto }% __ONLY ONE__ keyword per line
