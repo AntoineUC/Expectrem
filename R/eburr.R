@@ -1,4 +1,4 @@
-eburr=function(probs,gamma=0.5,rho=-1,method="mc"){
+eburr=function(probs,gamma=0.5,rho=-1){
   
   if (min(probs) < 0 || max(probs) > 1){
     stop("only asymmetries between 0 and 1 allowed.")
@@ -12,29 +12,25 @@ eburr=function(probs,gamma=0.5,rho=-1,method="mc"){
     stop("rho must be negative.")
   }
   
-  if(method!="mc" && method!="uniroot"){
-    stop("method must be either mc or uniroot.")
+  kmax=100
+  
+  coeffs=cumprod((1/rho-0:(kmax-1)))/factorial(1:kmax)
+  
+  find_root=function(tau){
+    fun=function(e){
+      if(e>=1){
+        psi1=-e^(1-1/gamma)/(1-1/gamma)-sum(coeffs*e^(1+(1:kmax)*rho/gamma-1/gamma)/(1+(1:kmax)*rho/gamma-1/gamma))
+      }
+      if(e<1){
+        psi1=1-e+sum(coeffs*(1-e^(1-(1:kmax)*rho/gamma))/(1-(1:kmax)*rho/gamma))-1/(1-1/gamma)-sum(coeffs/(1+(1:kmax)*rho/gamma-1/gamma))
+        
+      }
+      return(psi1/(2*psi1+e+1/rho*beta(-1/rho+gamma/rho,1-gamma/rho))-1+tau)
+    }
+    
+    return(uniroot(fun,c(0,10000000))$root)
   }
   
-   fy=function(y){
-     return((1+y^(-rho/gamma))^(1/rho))
-   } 
-   
-   find_root=function(tau){
-      fun=function(e){
-        psi1=integrate(fy,e,Inf)$value
-        return(psi1/(2*psi1+e+1/rho*beta(-1/rho+gamma/rho,1-gamma/rho))-1+tau)
-      }
-     
-     return(uniroot(fun,c(0,100000))$root)
-   }
-   
-   if(method=="uniroot"){
-     return(mapply(find_root,probs))
-   }
-   
-   if(method=="mc"){
-     return(expect(((1-runif(10000000))^rho-1)^(-gamma/rho),probs))
-   }
-   
+  return(mapply(find_root,probs))
+  
 }
