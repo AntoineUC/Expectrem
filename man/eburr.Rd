@@ -8,7 +8,7 @@
 This function computes the theoretical expectiles of the Burr distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-eburr(probs, gamma=0.5,rho=-1,method="mc")
+eburr(probs, gamma=0.5,rho=-1)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -20,9 +20,6 @@ First order parameter in (0,1). Default: 0.5.
 }
 \item{rho}{
 Second order parameter in (-Inf,0]. Default: -1.
-}
-\item{method}{
-Monte-Carlo approximation (mc, default) or numerical approximation (uniroot).
 }
 }
 \details{
