@@ -8,6 +8,10 @@ extQuantlp=function(X,tau,k,p,estim="lpindex",br=FALSE){
     stop("k must be between 1 and n-1.")
   }
   
+    if(tau<=0 || tau>=1){
+    stop("tau must be between 0 and 1.")
+  }
+  
   if(estim!="Hill" && estim!="lpindex"){
     stop("estim may be either Hill or lpindex.")
   }
