@@ -1,4 +1,4 @@
-extExpectlp=function(X,tau,k,p,br=FALSE){
+extExpectlp=function(X,tau,k,p,estim="lpindex",br=FALSE){
   
   n=length(X)
   
