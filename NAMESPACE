@@ -1,3 +1,2 @@
 exportPattern("^[^\\.]")
 importFrom("stats", "dnorm", "pnorm", "quantile", "dt", "pt")
-importFrom("evt0", "mop")
