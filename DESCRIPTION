@@ -3,7 +3,7 @@ Type: Package
 Title: Bias-reduced estimation of extreme value index and extreme quantiles and expectiles
 Version: 0.1.0
 Author: Antoine Usseglio-Carleve
-Maintainer: Antoine Usseglio-Carleve <antoine.usseglio-carleve@inria.fr>
+Maintainer: Antoine Usseglio-Carleve <antoine.usseglio-carleve@univ-avignon.fr>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: GPL-3
