@@ -6,6 +6,7 @@ Author: Antoine Usseglio-Carleve
 Maintainer: Antoine Usseglio-Carleve <antoine.usseglio-carleve@univ-avignon.fr>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
+Depends: R (>= 3.4.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
