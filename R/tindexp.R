@@ -6,6 +6,10 @@ tindexp=function(X,k="kopt",br=FALSE){
   
   n=length(X)
   
+  if(k>n-1 || k<1){
+    stop("k must be between 1 and n-1.")
+  }
+  
   mopest=mop(X[which(X>0)], 1:(length(which(X>0))-1), 0, method ="RBMOP")
   
   if(k[1]=="kopt"){
