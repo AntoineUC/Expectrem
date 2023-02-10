@@ -6,11 +6,11 @@ tindexp=function(X,k="kopt",br=FALSE){
   
   n=length(X)
   
-  if(k>n-1 || k<1){
+  if(any(k>n-1) || any(k<1)){
     stop("k must be between 1 and n-1.")
   }
   
-  mopest=mop(X[which(X>0)], 1:(length(which(X>0))-1), 0, method ="RBMOP")
+  mopest=mop(X, 1:(length(X)-1), 0, method ="RBMOP")
   
   if(k[1]=="kopt"){
     k=trunc(((1-mopest$rho)^2/(-2*mopest$rho*mopest$beta^2))^(1/(1-2*mopest$rho))*n^(-2*mopest$rho/(1-2*mopest$rho)))
