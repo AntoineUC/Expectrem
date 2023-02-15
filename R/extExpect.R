@@ -2,7 +2,7 @@ extExpect=function(X,k="kopt",tau,estim="Hill",method="direct",br=FALSE){
 
   n=length(X)
 
-  mopest=mop(X[which(X>0)], 1:(length(which(X>0))-1), 0, method ="RBMOP")
+  mopest=mop(X, 1:(n-1), 0, method ="RBMOP")
 
   if(k=="kopt" && estim=="Hill"){
     k=trunc(((1-mopest$rho)^2/(-2*mopest$rho*mopest$beta^2))^(1/(1-2*mopest$rho))*n^(-2*mopest$rho/(1-2*mopest$rho)))
@@ -33,10 +33,10 @@ extExpect=function(X,k="kopt",tau,estim="Hill",method="direct",br=FALSE){
     gammahat=mopest$EVI[k]
   }
   if(estim=="Hill" && br==FALSE){
-    gammahat=mop(X[which(X>0)], 1:(length(which(X>0))-1), 0, method ="MOP")$EVI[k]
+    gammahat=mop(X, 1:(n-1), 0, method ="MOP")$EVI[k]
   }
   if(estim=="tindexp"){
-    gammahat=tindexp(X[which(X>0)],k,br)
+    gammahat=tindexp(X,k,br)
   }
 
   qtp=expect(X,1-k/n)
