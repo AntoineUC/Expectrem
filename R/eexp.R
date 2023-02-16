@@ -12,5 +12,5 @@ eexp=function(probs,lambda=1){
     stop("lambda must be strictly positive.")
   }
   
-  return(1/lambda*(1+lambertWp((2*tau-1)/(1-tau)*exp(-1))))
+  return(1/lambda*(1+lambertWp((2*probs-1)/(1-probs)*exp(-1))))
 }
