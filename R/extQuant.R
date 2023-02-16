@@ -4,11 +4,11 @@ extQuant=function(X,k="kopt",tau,estim="Hill",br=FALSE){
 
   mopest=mop(X, 1:(n-1), 0, method ="RBMOP")
 
-  if(k=="kopt" && estim=="Hill"){
+  if(k[1]=="kopt" && estim=="Hill"){
     k=trunc(((1-mopest$rho)^2/(-2*mopest$rho*mopest$beta^2))^(1/(1-2*mopest$rho))*n^(-2*mopest$rho/(1-2*mopest$rho)))
   }
 
-  if(k=="kopt" && estim=="tindexp"){
+  if(k[1]=="kopt" && estim=="tindexp"){
     k=trunc(((1-mopest$rho)^2/(-2*mopest$rho*mopest$beta^2))^(1/(1-2*mopest$rho))*n^(-2*mopest$rho/(1-2*mopest$rho)))
     k=min(trunc(((1/mopest$EVI[k]-1)^(2*mopest$rho-1)*(1-mopest$EVI[k]-mopest$rho)^2/(-2*mopest$rho*mopest$beta^2*abs(1-2*mopest$EVI[k])))^(1/(1-2*mopest$rho))*n^(-2*mopest$rho/(1-2*mopest$rho))),trunc(n/2)-1)
   }
