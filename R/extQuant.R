@@ -13,7 +13,7 @@ extQuant=function(X,k="kopt",tau,estim="Hill",br=FALSE){
     k=min(trunc(((1/mopest$EVI[k]-1)^(2*mopest$rho-1)*(1-mopest$EVI[k]-mopest$rho)^2/(-2*mopest$rho*mopest$beta^2*abs(1-2*mopest$EVI[k])))^(1/(1-2*mopest$rho))*n^(-2*mopest$rho/(1-2*mopest$rho))),trunc(n/2)-1)
   }
 
-  if(k>n-1 || k<1){
+  if(any(k>n-1) || any(k<1)){
     stop("k must be between 1 and n-1.")
   }
 
