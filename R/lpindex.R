@@ -6,7 +6,7 @@ lpindex=function(X,k,p,br=FALSE){
   
   n=length(X)
   
-  if(k>n-1 || k<1){
+  if(any(k>n-1) || any(k<1)){
     stop("k must be between 1 and n-1.")
   }
   
@@ -49,7 +49,7 @@ lpindex=function(X,k,p,br=FALSE){
   
   if(br==TRUE){
     
-    mopest=mop(X[which(X>0)],p=0,k=1:(sum(X>0)-1),method = "RBMOP")
+    mopest=mop(X,p=0,k=1:(n-1),method = "RBMOP")
     
     rhohat=mopest$rho
     
