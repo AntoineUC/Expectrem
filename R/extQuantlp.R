@@ -48,11 +48,11 @@ extQuantlp=function(X,tau,k,p,estim="lpindex",br=FALSE){
   }
   
   if(estim=="Hill" && br==FALSE){
-    gammahat=mop(X[which(X>0)], 1:(length(which(X>0))-1), 0, method ="MOP")$EVI[k]
+    gammahat=mop(X, 1:(n-1), 0, method ="MOP")$EVI[k]
   }
   
   if(estim=="lpindex"){
-    gammahat=lpindex(X[which(X>0)],k,p,br)
+    gammahat=lpindex(X,k,p,br)
   }
   
   gphat=gammahat/beta(p,1/gammahat-p+1)
