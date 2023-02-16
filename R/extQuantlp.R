@@ -2,9 +2,9 @@ extQuantlp=function(X,tau,k,p,estim="lpindex",br=FALSE){
   
   n=length(X)
   
-  mopest=mop(X[which(X>0)], 1:(length(which(X>0))-1), 0, method ="RBMOP")
+  mopest=mop(X, 1:(n-1), 0, method ="RBMOP")
   
-  if(k>n-1 || k<1){
+  if(any(k>n-1) || any(k<1)){
     stop("k must be between 1 and n-1.")
   }
   
