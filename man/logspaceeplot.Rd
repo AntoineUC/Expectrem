@@ -1,7 +1,7 @@
 \name{logspaceeplot}
 \alias{logspaceeplot}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Log-spacing Expectile-Expectile plot
+\title{Exponential Expectile-Expectile plot of the log-spacings
 %%  ~~function to do ... ~~
 }
 \description{
