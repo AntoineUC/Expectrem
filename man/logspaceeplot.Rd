@@ -23,7 +23,7 @@ Number of upper order statistics. Default: 10\% of the data.
 }
   \item{grid}{
 %%     ~~Describe \code{x} here~~
-A grid over (0,1) where expectiles are estimated. Default: seq(0.01,0.99,0.01).
+A grid over (0,1) where the expectiles are estimated. Default: seq(0.01,0.99,0.01).
 }
   \item{add.line}{
 %%     ~~Describe \code{x} here~~
