@@ -33,6 +33,7 @@ Number of iterations (default: 20).
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
+This function is the expectile function, coming from the package expectreg.
 }
 \value{
 %%  ~Describe the value returned
@@ -46,7 +47,7 @@ Number of iterations (default: 20).
 }
 \author{
 %%  ~~who you are~~
-Antoine Usseglio-Carleve
+Fabian Otto-Sobotka
 }
 \note{
 %%  ~~further notes~~
