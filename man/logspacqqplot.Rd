@@ -8,7 +8,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-logspacqqplot(X,k=trunc(length(X)/10),grid=seq(0.01,0.99,0.01),add.line=F)
+logspacqqplot(X,k=trunc(length(X)/10),grid=seq(0.01,0.99,0.01),weighted=T,add.line=F)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,6 +23,10 @@ Number of upper order statistics. Default: 10\% of the data.
   \item{grid}{
 %%     ~~Describe \code{x} here~~
 A grid over (0,1) where the quantiles are estimated. Default: seq(0.01,0.99,0.01).
+}
+   \item{weighted}{
+%%     ~~Describe \code{x} here~~
+Boolean. If TRUE (default), the weighted log-spacings i*log(X_{n-i+1,n}/X_{n-i,n}) for i between 1 and k are computed. If FALSE, the log-spacings log(X_{n-i,n}/X_{n-k,n}) are considered.
 }
   \item{add.line}{
 %%     ~~Describe \code{x} here~~
