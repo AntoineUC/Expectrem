@@ -1,7 +1,7 @@
 \name{logspaceeplot}
 \alias{logspaceeplot}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Exponential Expectile-Expectile plot of the log-spacings
+\title{Log-spacing Expectile-Expectile plot
 %%  ~~function to do ... ~~
 }
 \description{
@@ -9,7 +9,7 @@
 This function produces an exponential EE plot of the values of the log spacings of the k greatest values of X.
 }
 \usage{
-logspaceeplot(X,k=trunc(length(X)/10),grid=seq(0.01,0.99,0.01),add.line=F)
+logspaceeplot(X,k=trunc(length(X)/10),grid=seq(0.01,0.99,0.01),weighted=T,add.line=F)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,7 +23,11 @@ Number of upper order statistics. Default: 10\% of the data.
 }
   \item{grid}{
 %%     ~~Describe \code{x} here~~
-A grid over (0,1) where the expectiles are estimated. Default: seq(0.01,0.99,0.01).
+A grid over (0,1) where expectiles are estimated. Default: seq(0.01,0.99,0.01).
+}
+  \item{weighted}{
+%%     ~~Describe \code{x} here~~
+Boolean. If TRUE (default), the weighted log-spacings i*log(X_{n-i+1,n}/X_{n-i,n}) for i between 1 and k are computed. If FALSE, the log-spacings log(X_{n-i,n}/X_{n-k,n}) are considered.
 }
   \item{add.line}{
 %%     ~~Describe \code{x} here~~
