@@ -16,12 +16,12 @@ logspacqqplot=function (X, k = trunc(length(X)/10), weighted = T, add.line = F)
   if (weighted == T) {
     plot(y = quantile((1:k) * log(quantile(X, 1 - (1:k - 
                                                      1)/n, type = 1)/quantile(X, 1 - (1:k)/n, type = 1)), 
-                      (1:k)/(k),type=1), x = (-log(1 - (1:k)/(k+1))), pch = 16, main = "QQ-plot", 
+                      (1:k)/(k+1)), x = (-log(1 - (1:k)/(k+1))), pch = 16, main = "QQ-plot", 
          ylab = "Log-spacings quantiles", xlab = "Exponential quantiles")
   }
   if (weighted == F) {
     plot(y = quantile(log(quantile(X, 1 - 1:k/n, type = 1)/quantile(X, 
-                                                                    1 - k/n, type = 1)), (1:k)/(k),type=1), x = (-log(1 - (1:k)/(k+1))), 
+                                                                    1 - k/n, type = 1)), (1:k)/(k+1)), x = (-log(1 - (1:k)/(k+1))), 
          pch = 16, main = "QQ-plot", ylab = "Log-spacings quantiles", 
          xlab = "Exponential quantiles")
   }
