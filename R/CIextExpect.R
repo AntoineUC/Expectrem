@@ -39,15 +39,7 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
     psihat=mean((X-qtp)*(X>qtp))
     
     Fbarhat=mean(X>qtp)
-    
-    quantint=quantile(X,1-Fbarhat)
-    
-    psihatquant=mean((X-quantint)*(X>quantint))
-    
-    psihatbis=mean((X-max(qtp,quantint))*(X>max(qtp,quantint)))
-    
-    Fbarhatbis=mean(X>max(qtp,quantint))
-    
+               
     psi2hat=min(max(2*Fbarhat*qtp^2*gammahat^2*(1/abs((1-gammahat)*(1-2*gammahat))+Fbarhat^(-mopest$rho)*mopest$beta/mopest$rho*( 1/abs((1-gammahat-mopest$rho)*(1-2*gammahat-mopest$rho)) - 1/abs((1-gammahat)*(1-2*gammahat)) )), psihat^2),sqrt(mean((X-qtp)^4*(X>qtp))))
     
     mhat=mean(X)
@@ -56,7 +48,7 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
     
     M11phi=k/n*(psi2hat/psihat^2-1)
     
-    M12phi=k/n*((psihatbis+(apply(cbind(qtp,quantint),1,max)-qtp)*Fbarhatbis)/(psihat*(1-alphan))-1)
+    M12phi=k/n*alphan/(1-alphan)
     
     M22phi=k/n*alphan/(1-alphan)
     
