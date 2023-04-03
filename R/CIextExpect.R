@@ -98,7 +98,7 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
   
   if (method == "indirect_PS") {
     
-    gammahat=
+    gammahat=mop(X,k=k,p=0,method="MOP")$EVI
    
     varPS=gammahat^2/log(k/(n*(1-tau)))^2*(1+(1/(1-gammahat)-log(1/gammahat-1)+log(k/(n*(1-tau))))^2)
     
