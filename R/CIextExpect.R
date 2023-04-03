@@ -104,11 +104,11 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
     
     estimpoint=extExpect(X,k=k,tau=tau,method = "indirect",br=F,estim="Hill")
     
-    vecsimoneup=estimpoint*exp(-(sqrt(varPS)/sqrt(k)*log((k/n)/(1-tau))*qnorm((1-ci.level)/2)))
+    estimup=estimpoint*exp(-(sqrt(varPS)/sqrt(k)*log((k/n)/(1-tau))*qnorm((1-ci.level)/2)))
     
-    vecsimonedown=estimpoint*exp(-(sqrt(varPS)/sqrt(k)*log((k/n)/(1-tau))*qnorm((1+ci.level)/2)))
+    estimdown=estimpoint*exp(-(sqrt(varPS)/sqrt(k)*log((k/n)/(1-tau))*qnorm((1+ci.level)/2)))
     
-    return(list(Lower_bound=estimdown,Point_estimate=estimpoint*exp(biasPS/sqrt(k)),Upper_bound=estimup))
+    return(list(Lower_bound=estimdown,Point_estimate=estimpoint,Upper_bound=estimup))
   
   }
   
