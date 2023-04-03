@@ -11,7 +11,7 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
   if (k > n - 1 || k < 1) {
     stop("k must be between 1 and n-1.")
   }
-  if (method != "direct" && method != "indirect" && method != "direct_naive" && method != "indirect_naive") {
+  if (method != "direct" && method != "indirect" && method != "direct_naive" && method != "indirect_naive" && method != "direct_PS" && method != "indirect_PS") {
     stop("method may be either direct or indirect.")
   }
   
@@ -75,6 +75,41 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
     
     return(list(Lower_bound=estimdown,Point_estimate=estimpoint,Upper_bound=estimup))
     
+  }
+  
+  if (method == "direct_PS") {
+    
+    gammahat=mop(X,k=k,p=0,method="MOP")$EVI
+    
+    Fbarhat=mean(X>expect(X,1-k/n))
+    
+    biasPS=-gammahat*(1/gammahat-1)^gammahat*mean(X)*sqrt(k)/quantile(X,1-k/n)
+    
+    varPS=gammahat^2+2*gammahat^3*(1/gammahat-1)^gammahat/((1-gammahat)^2*log((k/n)/(1-tau)))+gammahat^2/((1-2*gammahat)*log((k/n)/(1-tau))^2)*(1+Fbarhat/(k/n))/(1+(1-2*k/n)*Fbarhat/(k/n))^2
+    
+    estimpoint=extExpect(X,k=k,tau=tau,method = "direct",br=F,estim="Hill")
+    
+    estimup=estimpoint*exp(biasPS/sqrt(k)+log((k/n)/(1-tau))/sqrt(k)*sqrt(varPS)*qnorm((1+ci.level)/2))
+    
+    estimdown=estimpoint*exp(biasPS/sqrt(k)-log((k/n)/(1-tau))/sqrt(k)*sqrt(varPS)*qnorm((1+ci.level)/2))
+    
+    return(list(Lower_bound=estimdown,Point_estimate=estimpoint*exp(biasPS/sqrt(k)),Upper_bound=estimup))
+  }
+  
+  if (method == "indirect_PS") {
+    
+    gammahat=
+   
+    varPS=gammahat^2/log(k/(n*(1-tau)))^2*(1+(1/(1-gammahat)-log(1/gammahat-1)+log(k/(n*(1-tau))))^2)
+    
+    estimpoint=extExpect(X,k=k,tau=tau,method = "indirect",br=F,estim="Hill")
+    
+    vecsimoneup=estimpoint*exp(-(sqrt(varPS)/sqrt(k)*log((k/n)/(1-tau))*qnorm((1-ci.level)/2)))
+    
+    vecsimonedown=estimpoint*exp(-(sqrt(varPS)/sqrt(k)*log((k/n)/(1-tau))*qnorm((1+ci.level)/2)))
+    
+    return(list(Lower_bound=estimdown,Point_estimate=estimpoint*exp(biasPS/sqrt(k)),Upper_bound=estimup))
+  
   }
   
   if (method == "direct") {
