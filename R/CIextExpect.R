@@ -47,6 +47,36 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
     return(list(Lower_bound=estimdown,Point_estimate=estimpoint,Upper_bound=estimup))
   }
   
+  if (method == "indirect_naive") {
+    
+    gammahat=mopest$EVI[k]
+    if(gammahat>1){
+      stop("Tail index greater than 1 ! Expectile does probably not exist !")
+    }
+    qtp = quantile(X, 1 - k/n)*(1/gammahat-1)^(-gammahat)
+    r = (1 - mean(X)/qtp) * (n/(n - 2 * k)) * (1 + mopest$beta * 
+                                                 gammahat * Fbar(X, qtp)^(-mopest$rho)/(gammahat * (1 - 
+                                                                                                      mopest$rho - gammahat)))^(-1)
+    rbet = (1 - mean(X)/(qtp * (k/(n * (1 - tau)))^(gammahat))) * 
+      (1/(2 * tau - 1)) * (1 + mopest$beta * gammahat * (1/gammahat - 
+                                                           1)^(-mopest$rho) * (1 - tau)^(-mopest$rho)/(gammahat * 
+                                                                                                         (1 - mopest$rho - gammahat)))^(-1)
+    estimpoint=(1/gammahat - 1)^(-gammahat) * quantile(X, 1 - 
+                                                         k/n) * (k/(n * (1 - tau)))^gammahat * (1 + ((k/(n * 
+                                                                                                           (1 - tau)))^mopest$rho - 1)/mopest$rho * mopest$beta * 
+                                                                                                  gammahat * (n/k)^mopest$rho) * (1 + ((1/gammahat - 
+                                                                                                                                          1)^(-mopest$rho) * rbet^(-mopest$rho) - 1)/mopest$rho * 
+                                                                                                                                    mopest$beta * gammahat * (1 - tau)^(-mopest$rho))/(rbet^gammahat)
+    varnaive=vecgammahat^2
+    
+    estimup=estimpoint*exp(-(sqrt(varnaive)/sqrt(k)*log((k/n)/(1-tau))*qnorm((1-ci.level)/2)))
+    
+    estimdown=estimpoint*exp(-(sqrt(varnaive)/sqrt(k)*log((k/n)/(1-tau))*qnorm((1+ci.level)/2)))
+    
+    return(list(Lower_bound=estimdown,Point_estimate=estimpoint,Upper_bound=estimup))
+    
+  }
+  
   if (method == "direct") {
     qtp = expect(X, 1 - k/n)
     gammahat=tindexp(X,k,br=T)
