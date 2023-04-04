@@ -38,7 +38,7 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
                                                                                       r^(-mopest$rho) - 1)/mopest$rho * mopest$beta * gammahat * 
                                                                                  (k/n)^(-mopest$rho))
     
-    varnaive=vecgammahat^3*(1-vecgammahat)/(1-2*vecgammahat)
+    varnaive=gammahat^3*(1-gammahat)/(1-2*gammahat)
     
     estimup=estimpoint*exp(-(sqrt(varnaive)/sqrt(k)*log((k/n)/(1-tau))*qnorm((1-ci.level)/2)))
     
@@ -67,7 +67,7 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
                                                                                                   gammahat * (n/k)^mopest$rho) * (1 + ((1/gammahat - 
                                                                                                                                           1)^(-mopest$rho) * rbet^(-mopest$rho) - 1)/mopest$rho * 
                                                                                                                                     mopest$beta * gammahat * (1 - tau)^(-mopest$rho))/(rbet^gammahat)
-    varnaive=vecgammahat^2
+    varnaive=gammahat^2
     
     estimup=estimpoint*exp(-(sqrt(varnaive)/sqrt(k)*log((k/n)/(1-tau))*qnorm((1-ci.level)/2)))
     
