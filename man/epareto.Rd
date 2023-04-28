@@ -23,7 +23,7 @@ Number of Newton-Raphson iterations. Default: 50.
 }
 }
 \details{
-The considered distribution has c.s.f. y^(-1/gamma) for y>1.%%  ~~ If necessary, more details than the description above ~~
+The considered distribution has c.s.f. y^(-alpha) for y>1.%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
