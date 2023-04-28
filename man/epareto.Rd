@@ -5,10 +5,10 @@
 %%  ~~function to do ... ~~
 }
 \description{
-This function computes the theoretical expectiles of the Pareto distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function computes the expectiles of the Pareto distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-epareto(probs, alpha=2)
+epareto(probs, alpha=2, niter=50)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,7 +23,7 @@ Number of Newton-Raphson iterations. Default: 50.
 }
 }
 \details{
-The considered distribution has c.s.f. y^(-1/gamma).%%  ~~ If necessary, more details than the description above ~~
+The considered distribution has c.s.f. y^(-1/gamma) for y>1.%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
