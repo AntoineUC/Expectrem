@@ -8,15 +8,18 @@
 This function computes the theoretical expectiles of the Pareto distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-epareto(probs, gamma=0.5)
+epareto(probs, alpha=2)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{probs}{
 Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} here~~
 }
-\item{gamma}{
-Tail index parameter in (0,1). Default: 0.5.
+\item{alpha}{
+Shape parameter greater than 1. Default: 2.
+}
+ \item{niter}{
+Number of Newton-Raphson iterations. Default: 50.
 }
 }
 \details{
@@ -35,19 +38,6 @@ The considered distribution has c.s.f. y^(-1/gamma).%%  ~~ If necessary, more de
 \author{
 Antoine Usseglio-Carleve%%  ~~who you are~~
 }
-\note{
-%%  ~~further notes~~
-}
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
-\examples{
-
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~expectiles }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~pareto }% __ONLY ONE__ keyword per line
+\keyword{ ~expectiles }
+\keyword{ ~pareto }
