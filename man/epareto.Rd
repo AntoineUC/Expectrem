@@ -16,7 +16,7 @@ epareto(probs, alpha=2, niter=50)
 Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} here~~
 }
 \item{alpha}{
-Shape parameter greater than 1. Default: 2.
+Shape parameter strictly greater than 1. Default: 2.
 }
  \item{niter}{
 Number of Newton-Raphson iterations. Default: 50.
