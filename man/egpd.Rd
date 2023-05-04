@@ -5,22 +5,25 @@
 %%  ~~function to do ... ~~
 }
 \description{
-This function computes the theoretical expectiles of the Generalized Pareto Distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function computes expectiles of the Generalized Pareto Distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-egpd(probs, gamma=0.5)
+egpd(probs, alpha, niter=50)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{probs}{
 Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} here~~
 }
-\item{gamma}{
-Tail index parameter in (0,1). Default: 0.5.
+\item{alpha}{
+Parameter strictly greater than 1.
+}
+ \item{niter}{
+Number of Newton-Raphson iterations. Default: 50.
 }
 }
 \details{
-The considered GPD has c.s.f. (1+ gamma y)^(-1/gamma).%%  ~~ If necessary, more details than the description above ~~
+The considered GPD has c.s.f. (1+ y/alpha)^(-alpha). Note that the GPD is heavy-tailed with first and second order tail indices gamma=1/alpha and rho=-1/alpha, respectively.%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
