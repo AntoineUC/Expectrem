@@ -5,25 +5,25 @@
 %%  ~~function to do ... ~~
 }
 \description{
-This function computes the theoretical expectiles of the Burr distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function computes the expectiles of the Burr distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-eburr(probs, gamma=0.5,rho=-1)
+eburr(probs, a,b,niter=50)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{probs}{
 Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} here~~
 }
-\item{gamma}{
-First order parameter in (0,1). Default: 0.5.
+\item{a}{
+Parameter of the Burr distribution. Must be strictly positive.
 }
-\item{rho}{
-Second order parameter in (-Inf,0]. Default: -1.
+\item{b}{
+Parameter of the Burr distribution. Must be strictly greater than 1/a.
 }
 }
 \details{
-The considered distribution has c.s.f. (1+ gamma^(-rho/gamma))^(1/rho).%%  ~~ If necessary, more details than the description above ~~
+The considered distribution has c.s.f. (1+ gamma^a)^(-b). Note that this distribution is sometimes parametrized with gamma=1/(a*b) and rho=-1/b.%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
@@ -50,7 +50,5 @@ Antoine Usseglio-Carleve%%  ~~who you are~~
 \examples{
 
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{ ~expectile }% use one of  RShowDoc("KEYWORDS")
 \keyword{ ~Burr }% __ONLY ONE__ keyword per line
