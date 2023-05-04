@@ -8,7 +8,7 @@
 This function computes the expectiles of the Inverse-Gamma distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-einvgamma(probs, alpha=2, lambda=1, niter=50)
+einvgamma(probs, alpha, lambda, niter=50)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -16,10 +16,10 @@ einvgamma(probs, alpha=2, lambda=1, niter=50)
 Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} here~~
 }
 \item{alpha}{
-Shape parameter strictly greater than 1. Default: 2.
+Shape parameter strictly greater than 1. 
 }
 \item{lambda}{
-Scale parameter strictly greater than 0. Default: 1.
+Scale parameter strictly greater than 0. 
 }
  \item{niter}{
 Number of Newton-Raphson iterations. Default: 50.
