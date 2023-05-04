@@ -1,7 +1,7 @@
 \name{ebeta}
 \alias{ebeta}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{
+\title{Expectiles of Beta distribution
 %%  ~~function to do ... ~~
 }
 \description{
