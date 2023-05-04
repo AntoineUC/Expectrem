@@ -1,0 +1,56 @@
+\name{ebeta}
+\alias{ebeta}
+%- Also NEED an '\alias' for EACH other topic documented here.
+\title{
+%%  ~~function to do ... ~~
+}
+\description{
+This function computes the expectiles of the Beta distribution.
+%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+}
+\usage{
+ebeta(probs, shape1, shape2, niter=50)
+}
+%- maybe also 'usage' for other objects documented here.
+\arguments{
+  \item{probs}{
+Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} here~~
+}
+\item{shape1}{
+First shape parameter. Must be strictly positive.
+}
+\item{shape2}{
+Second shape parameter. Must be strictly positive.
+}
+ \item{niter}{
+Number of Newton-Raphson iterations. Default: 50.
+}
+}
+\details{
+The considered distribution has p.d.f. y^(shape1-1)*(1-y)^(shape2-1)/B(shape1,shape2) for y in [0,1].
+%%  ~~ If necessary, more details than the description above ~~
+}
+\value{
+%%  ~Describe the value returned
+%%  If it is a LIST, use
+%%  \item{comp1 }{Description of 'comp1'}
+%%  \item{comp2 }{Description of 'comp2'}
+%% ...
+}
+\references{
+%% ~put references to the literature/web site here ~
+}
+\author{
+Antoine Usseglio-Carleve%%  ~~who you are~~
+}
+\note{
+%%  ~~further notes~~
+}
+
+%% ~Make other sections like Warning with \section{Warning }{....} ~
+
+\seealso{
+%% ~~objects to See Also as \code{\link{help}}, ~~~
+}
+
+\keyword{ ~expectiles }
