@@ -21,6 +21,9 @@ Parameter of the Dagum distribution. Must be strictly greater than 1.
 \item{b}{
 Parameter of the Dagum distribution. Must be strictly positive.
 }
+\item{niter}{
+Number of Newton-Raphson iterations. Default: 50.
+}
 }
 \details{
 The considered distribution has c.s.f. (1+ gamma^(-a))^(-b). Note that this distribution is heavy-tailed with first and second tail indices gamma=1/a and rho=-1, respectively.%%  ~~ If necessary, more details than the description above ~~
