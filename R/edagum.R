@@ -20,5 +20,5 @@ edagum=function(probs,a,b,niter=50){
   }
   e[which(probs == 0)] = 0
   e[which(probs == 1)] = Inf
-  
+  return(e)
 }
