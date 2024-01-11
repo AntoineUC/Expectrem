@@ -10,9 +10,9 @@ einvgamma=function (probs, alpha, lambda, tol=1e-08, maxiter=100)
   gap=1
   i=1
   while (gap >= tol && i<=maxiter) {
-    e1 = lambda/(alpha-1)*((2*probs[which(probs*(1-probs) != 0)]-1)*pgamma(lambda/e[which(probs*(1-probs) != 0)],alpha-1)+1-probs[which(probs*(1-probs) != 0)])/((2*probs[which(probs*(1-probs) != 0)]-1)*pgamma(lambda/e[which(probs*(1-probs) != 0)],alpha)+1-probs[which(probs*(1-probs) != 0)])
-    gap=max(abs(e1-e[which(probs*(1-probs) != 0)]),na.rm=T)
-    e[which(probs*(1-probs) != 0)]=e1
+    e1 = lambda/(alpha-1)*((2*probs-1)*pgamma(lambda/e,alpha-1)+1-probs)/((2*probs-1)*pgamma(lambda/e,alpha)+1-probs)
+    gap=max(abs(e1-e),na.rm=T)
+    e=e1
     i=i+1
   }
   if(i>maxiter){
