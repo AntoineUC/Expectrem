@@ -9,7 +9,7 @@
 This function computes the expectiles of the Frechet distribution.
 }
 \usage{
-efrechet(probs,a=2,tol=1e-08)
+efrechet(probs,a=2,tol=1e-08,maxiter=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,6 +23,9 @@ Parameter (strictly greater than 1) of the Frechet distribution.
 }
 \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
+}
+\item{maxiter}{
+Maximum number of iterations. Default: 100.
 }
 }
 \details{
