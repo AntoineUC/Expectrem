@@ -1,4 +1,4 @@
-edagum=function(probs,a,b,tol=1e-08){
+edagum=function(probs,a,b,tol=1e-08,maxiter=100){
   
   if (min(probs) < 0 || max(probs) > 1){
     stop("only asymmetries between 0 and 1 allowed.")
@@ -14,12 +14,17 @@ edagum=function(probs,a,b,tol=1e-08){
   
   e = rep(b*beta(b+1/a,1-1/a), length(probs))
   gap=1
-  while (gap >= tol) {
+  i=1
+  while (gap >= tol && i<= maxiter) {
     e1 = b*beta(b+1/a,1-1/a)*((2*probs-1)*(1-pbeta(1/(1+e^(-a)),b+1/a,1-1/a))+1-probs)/(probs-(2*probs-1)*(1+e^(-a))^(-b))
     gap=max(abs(e1-e),na.rm=T)
     e=e1
+    i=i+1
   }
   e[which(probs == 0)] = 0
   e[which(probs == 1)] = Inf
+  if(i>maxiter){
+    warning("Warning: maximum of iterations reached !")
+  }
   return(e)
 }
