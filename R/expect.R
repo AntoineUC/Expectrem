@@ -1,6 +1,6 @@
 
-expect=function (X, probs, tol=1e-08, maxiter=100) {
- 
+expect=function (X, probs) {
+  
   if (min(probs) <= 0 || max(probs) >= 1) {
     stop("only asymmetries between 0 and 1 allowed.")
   }
@@ -12,19 +12,20 @@ expect=function (X, probs, tol=1e-08, maxiter=100) {
   if (sum(is.na(X))>0) {
     stop("X contains NA values.")
   }
-   
-  e = rep(mean(X), length(probs))
-  gap=1
-  i=1
-  while (gap >= tol && i<=maxiter) {
-    e1 = ((2*probs-1)*apply(matrix(rep(X,length(probs)),length(X),length(probs))*((t(t(matrix(rep(X,length(probs)),length(X),length(probs)))-e))>0),2,mean)+(1-probs)*rep(mean(X),length(probs)))/((2*probs-1)*apply(((t(t(matrix(rep(X,length(probs)),length(X),length(probs)))-e))>0),2,mean)+1-probs)
-    gap=max(abs(e1-e),na.rm=T)
-    e=e1
-    i=i+1
+  
+  num1=(0:(n-2))*sort(X)[1:(n-1)]-c(0,cumsum(sort(X))[1:(n-2)])
+  
+  denum1=num1+sum(X)-cumsum(sort(X))[1:(n-1)]-(n-1:(n-1))*sort(X)[1:(n-1)]
+  
+  blow=num1/denum1
+  
+  f=function(tau){
+    i=which((tau>=blow)==FALSE)[1]-1
+    return((tau*(sum(X)-sum(sort(X)[1:i]))+(1-tau)*sum(sort(X)[1:i]))/(tau*n-(2*tau-1)*i))
   }
-  if(i>maxiter){
-    warning("Warning: maximum of iterations reached !")
-  }
+  
+  e=mapply(f,probs)
+  
   return(e)
   
 }
