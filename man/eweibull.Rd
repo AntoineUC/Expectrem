@@ -8,7 +8,7 @@
   This function computes the expectiles of the Weibull distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-  eweibull(probs, k, tol=1e-08)
+  eweibull(probs, k, tol=1e-08, maxiter=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,6 +21,9 @@
   \item{tol}{
     Tolerance in the stopping criterion. Default: 1e-08.
   }
+ \item{maxiter}{
+Maximum number of iterations. Default: 100.
+}
 }
 \details{
   The considered distribution has c.s.f. exp(-y^k) for y>0.%%  ~~ If necessary, more details than the description above ~~
