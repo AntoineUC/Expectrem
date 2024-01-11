@@ -9,7 +9,7 @@
 This function computes the theoretical expectiles of the Student distribution.
 }
 \usage{
-et(probs, df = 2, mu = 0, sigma = 1, niter = 20)
+et(probs, df = 2, mu = 0, sigma = 1, tol=1e-08)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -29,9 +29,9 @@ Location parameter. Default: 0.
 %%     ~~Describe \code{niter} here~~
 Scale parameter. Default: 1.
 }
-  \item{niter}{
+  \item{tol}{
 %%     ~~Describe \code{niter} here~~
-Number of iterations of the fixed point algorithm. Default: 20.
+Tolerance in the stopping criterion. Default: 1e-08.
 }
 }
 \details{
