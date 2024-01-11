@@ -25,6 +25,9 @@ Second shape parameter. Must be strictly positive.
  \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
 }
+ \item{maxiter}{
+Maximum number of iterations. Default: 100.
+}
 }
 \details{
 The considered distribution has p.d.f. y^(shape1-1)*(1-y)^(shape2-1)/B(shape1,shape2) for y in [0,1].
