@@ -1,6 +1,6 @@
 egpd=function(probs,alpha,tol=1e-08,maxiter=100){
   
-  if (min(probs) < 0 || max(probs) > 1){
+  if (min(probs) <= 0 || max(probs) >= 1){
     stop("only asymmetries between 0 and 1 allowed.")
   }
   
@@ -18,8 +18,6 @@ egpd=function(probs,alpha,tol=1e-08,maxiter=100){
     e=e1
     i=i+1
   }
-  e[which(probs == 0)] = 1
-  e[which(probs == 1)] = Inf
   if(i>maxiter){
     warning("Warning: maximum of iterations reached !")
   }
