@@ -1,4 +1,4 @@
-ef=function (probs, df1, df2, tol=1e-08,maxiter=100) 
+ef=function (probs, df1, df2, tol=1e-08, maxiter=100) 
 {
   if (min(probs) < 0 || max(probs) > 1) {
     stop("only asymmetries between 0 and 1 allowed.")
