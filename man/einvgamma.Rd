@@ -8,7 +8,7 @@
 This function computes the expectiles of the Inverse-Gamma distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-einvgamma(probs, alpha, lambda, niter=50)
+einvgamma(probs, alpha, lambda, tol=1e-08)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,8 +21,8 @@ Shape parameter strictly greater than 1.
 \item{lambda}{
 Scale parameter strictly greater than 0. 
 }
- \item{niter}{
-Number of Newton-Raphson iterations. Default: 50.
+ \item{tol}{
+Tolerance in the stopping criterion. Default: 1e-08.
 }
 }
 \details{
