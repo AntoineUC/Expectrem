@@ -30,7 +30,6 @@ Maximum number of iterations (default: 100).
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
-This function is the expectile function, coming from the package expectreg.
 }
 \value{
 %%  ~Describe the value returned
