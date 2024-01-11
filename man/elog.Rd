@@ -9,7 +9,7 @@
 This function computes the theoretical expectiles of the normal distribution.
 }
 \usage{
-elog(probs, mu = 0, sigma = 1, niter = 20)
+elog(probs, mu = 0, sigma = 1, tol=1e-08)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -25,9 +25,9 @@ Location parameter. Default: 0.
 %%     ~~Describe \code{x} here~~
 Scale parameter. Default: 1.
 }
-\item{niter}{
+\item{tol}{
 %%     ~~Describe \code{x} here~~
-Number of iterations of the fixed point algorithm. Default: 20.
+Tolerance in the stopping criterion. Default: 1e-08.
 }
 }
 \details{
