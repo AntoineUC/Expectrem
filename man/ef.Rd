@@ -8,7 +8,7 @@
 This function computes the expectiles of the F distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-ef(probs, df1, df2, niter=50)
+ef(probs, df1, df2, tol=1e-08)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,8 +21,8 @@ Degree of freedom 1. Must be strictly positive.
 \item{df2}{
 Degree of freedom 2. Must be strictly greater than 2.
 }
- \item{niter}{
-Number of Newton-Raphson iterations. Default: 50.
+ \item{tol}{
+Tolerance in the stopping criterion. Default: 1e-08.
 }
 }
 \details{
