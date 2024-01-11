@@ -8,7 +8,7 @@
 This function computes the expectiles of the chi-squared distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-echisq(probs, df, niter=50)
+echisq(probs, df, tol=1e-08)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,8 +18,8 @@ Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} 
 \item{df}{
 Degrees of freedom. Must be strictly positive.
 }
- \item{niter}{
-Number of Newton-Raphson iterations. Default: 50.
+ \item{tol}{
+Tolerance in the stopping criterion. Default: 1e-08.
 }
 }
 \details{
