@@ -14,11 +14,11 @@ enorm=function(probs, mu = 0, sigma = 1, tol=1e-08, maxiter=100){
   i=1
   while(gap >= tol && i<=maxiter){
     
-    e1=(1-2*probs[which(probs*(1-probs) != 0)])*dnorm(e[which(probs*(1-probs) != 0)])/((2*probs[which(probs*(1-probs) != 0)]-1)*pnorm(e[which(probs*(1-probs) != 0)])-probs[which(probs*(1-probs) != 0)])
+    e1=(1-2*probs)*dnorm(e)/((2*probs-1)*pnorm(e)-probs)
     
-    gap=max(abs(e1-e[which(probs*(1-probs) != 0)]),na.rm=T)
+    gap=max(abs(e1-e),na.rm=T)
     
-    e[which(probs*(1-probs) != 0)]=e1
+    e=e1
 
     i=i+1
   }
