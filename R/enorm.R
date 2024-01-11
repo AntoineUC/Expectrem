@@ -1,26 +1,28 @@
-enorm=function(probs, mu = 0, sigma = 1, niter = 20){
-
+enorm=function(probs, mu = 0, sigma = 1, tol=1e-08){
+  
   if (min(probs) < 0 || max(probs) > 1){
     stop("only asymmetries between 0 and 1 allowed.")
   }
-
+  
   if(sigma<0){
     stop("sigma must be positive.")
   }
-
+  
   e=rep(0,length(probs))
-
-  i=1
-  while(i<=niter){
-
-    e=(1-2*probs)*dnorm(e)/((2*probs-1)*pnorm(e)-probs)
-
-    i=i+1
+  
+  gap=1
+  while(gap >= tol){
+    
+    e1=(1-2*probs[which(probs*(1-probs) != 0)])*dnorm(e[which(probs*(1-probs) != 0)])/((2*probs[which(probs*(1-probs) != 0)]-1)*pnorm(e[which(probs*(1-probs) != 0)])-probs[which(probs*(1-probs) != 0)])
+    
+    gap=max(abs(e1-e[which(probs*(1-probs) != 0)]),na.rm=T)
+    
+    e[which(probs*(1-probs) != 0)]=e1
   }
-
+  
   e[which(probs==0)]=-Inf
-
+  
   e[which(probs==1)]=Inf
-
+  
   return(mu+sigma*e)
 }
