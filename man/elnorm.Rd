@@ -8,7 +8,7 @@
 This function computes the expectiles of the Lognormal distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-elnorm(probs, mu=0,sigma=1,niter=50)
+elnorm(probs, mu=0,sigma=1,tol=1e-08)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,8 +21,8 @@ Meanlog parameter.
 \item{sigma}{
 sdlog parameter. Must be strictly positive.
 }
-\item{niter}{
-Number of Newton-Raphson iterations. Default: 50.
+\item{tol}{
+Tolerance in the stopping criterion. Default: 1e-08.
 }
 }
 \details{
