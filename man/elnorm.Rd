@@ -8,7 +8,7 @@
 This function computes the expectiles of the Lognormal distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-elnorm(probs, mu=0,sigma=1,tol=1e-08)
+elnorm(probs, mu=0,sigma=1,tol=1e-08,maxiter=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,6 +23,9 @@ sdlog parameter. Must be strictly positive.
 }
 \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
+}
+\item{maxiter}{
+Maximum number of iterations. Default: 100.
 }
 }
 \details{
