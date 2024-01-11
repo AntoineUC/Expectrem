@@ -24,6 +24,9 @@ Parameter of the Burr distribution. Must be strictly greater than 1/a.
 \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
 }
+\item{maxiter}{
+Maximum number of iterations. Default: 100.
+}
 }
 \details{
 The considered distribution has c.s.f. (1+ gamma^a)^(-b). Note that this distribution is sometimes parametrized with gamma=1/(a*b) and rho=-1/b.%%  ~~ If necessary, more details than the description above ~~
