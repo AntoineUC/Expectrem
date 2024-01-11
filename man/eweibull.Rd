@@ -8,7 +8,7 @@
   This function computes the expectiles of the Weibull distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-  eweibull(probs, k, niter=50)
+  eweibull(probs, k, tol=1e-08)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,8 +18,8 @@
   \item{k}{
     Shape parameter strictly positive. 
   }
-  \item{niter}{
-    Number of Newton-Raphson iterations. Default: 50.
+  \item{tol}{
+    Tolerance in the stopping criterion. Default: 1e-08.
   }
 }
 \details{
