@@ -8,7 +8,7 @@
 This function computes the expectiles of the Hall-Weiss distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-ehallweiss(probs, alpha=2, beta=1, niter=50)
+ehallweiss(probs, alpha, beta, tol=1e-08)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -16,13 +16,13 @@ ehallweiss(probs, alpha=2, beta=1, niter=50)
 Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} here~~
 }
 \item{alpha}{
-First-order parameter strictly greater than 1. Default: 2.
+First-order parameter strictly greater than 1.
 }
 \item{beta}{
-Second-order parameter strictly greater than 0. Default: 1.
+Second-order parameter strictly greater than 0.
 }
- \item{niter}{
-Number of Newton-Raphson iterations. Default: 50.
+ \item{tol}{
+Tolerance in the stopping criterion. Default: 1e-08.
 }
 }
 \details{
