@@ -8,7 +8,7 @@
 This function computes the expectiles of the Dagum distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-edagum(probs, a,b,niter=50)
+edagum(probs, a,b,tol=1e-08)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,8 +21,8 @@ Parameter of the Dagum distribution. Must be strictly greater than 1.
 \item{b}{
 Parameter of the Dagum distribution. Must be strictly positive.
 }
-\item{niter}{
-Number of Newton-Raphson iterations. Default: 50.
+\item{tol}{
+Tolerance in the stopping criterion. Default: 1e-08.
 }
 }
 \details{
