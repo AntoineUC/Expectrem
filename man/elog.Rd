@@ -9,7 +9,7 @@
 This function computes the theoretical expectiles of the normal distribution.
 }
 \usage{
-elog(probs, mu = 0, sigma = 1, tol=1e-08)
+elog(probs, mu = 0, sigma = 1, tol=1e-08, maxiter=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -28,6 +28,9 @@ Scale parameter. Default: 1.
 \item{tol}{
 %%     ~~Describe \code{x} here~~
 Tolerance in the stopping criterion. Default: 1e-08.
+}
+\item{maxiter}{
+Maximum number of iterations. Default: 100.
 }
 }
 \details{
