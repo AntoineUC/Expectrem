@@ -16,6 +16,7 @@ egpd=function(probs,alpha,tol=1e-08,maxiter=100){
                                1 - probs)/((2 * probs - 1) * e^(-alpha) + 1 - probs)
     gap=max(abs(e1-e),na.rm=T)
     e=e1
+    i=i+1
   }
   e[which(probs == 0)] = 1
   e[which(probs == 1)] = Inf
