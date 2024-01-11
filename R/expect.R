@@ -1,41 +1,30 @@
 
-expect=function (x, probs = seq(0, 1, 0.25), dec = 4, tol=1e-06, niter=20)
-{
-  if(niter<1){
-    stop("niter must be greater than 0.")
-  }
-  if(tol<0){
-    stop("tol must be positive.")
-  }
-  if(dec<1){
-    stop("dec must be strictly positive.")
-  }
-  if (!is.vector(x))
-    stop("observations are needed in vector form.")
-  if (min(probs) < 0 || max(probs) > 1)
+expect=function (X, probs, tol=1e-08, maxiter=100) {
+ 
+  if (min(probs) <= 0 || max(probs) >= 1) {
     stop("only asymmetries between 0 and 1 allowed.")
-  e = mean(x)
-  ee = 0 * probs
-  g = max(abs(x)) * tol
-  for (k in 1:length(probs)) {
-    p = probs[k]
-    if (p == 0)
-      ee[k] = min(x, na.rm = TRUE)
-    else if (p == 1)
-      ee[k] = max(x, na.rm = TRUE)
-    else {
-      for (it in 1:niter) {
-        w = ifelse(x < e, 1 - p, p)
-        enew = sum(w * x)/sum(w)
-        de = max(abs(enew - e))
-        e = enew
-        if (de < g)
-          break
-      }
-      ee[k] = e
-    }
   }
-  names(ee) = probs
-  ee = round(ee, dec)
-  return(ee)
+  
+  if (is.vector(X)==FALSE) {
+    stop("X must be a vector.")
+  }
+  
+  if (sum(is.na(X))>0) {
+    stop("X contains NA values.")
+  }
+   
+  e = rep(mean(X), length(probs))
+  gap=1
+  i=1
+  while (gap >= tol && i<=maxiter) {
+    e1 = ((2*probs-1)*apply(matrix(rep(X,length(probs)),length(X),length(probs))*((t(t(matrix(rep(X,length(probs)),length(X),length(probs)))-e))>0),2,mean)+(1-probs)*rep(mean(X),length(probs)))/((2*probs-1)*apply(((t(t(matrix(rep(X,length(probs)),length(X),length(probs)))-e))>0),2,mean)+1-probs)
+    gap=max(abs(e1-e),na.rm=T)
+    e=e1
+    i=i+1
+  }
+  if(i>maxiter){
+    warning("Warning: maximum of iterations reached !")
+  }
+  return(e)
+  
 }
