@@ -9,7 +9,7 @@
 This function computes the expectiles of the Frechet distribution.
 }
 \usage{
-efrechet(probs,a=2,niter=50)
+efrechet(probs,a=2,tol=1e-08)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,8 +21,8 @@ Numeric vector of probabilities with values in (0,1).
 %%     ~~Describe \code{x} here~~
 Parameter (strictly greater than 1) of the Frechet distribution.
 }
-\item{niter}{
-Number of Newton-Raphson iterations. Default: 50.
+\item{tol}{
+Tolerance in the stopping criterion. Default: 1e-08.
 }
 }
 \details{
