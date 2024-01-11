@@ -8,7 +8,7 @@
 This function computes the expectiles of the Pareto distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-epareto(probs, alpha=2, niter=50)
+epareto(probs, alpha, tol=1e-08)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -16,10 +16,10 @@ epareto(probs, alpha=2, niter=50)
 Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} here~~
 }
 \item{alpha}{
-Shape parameter strictly greater than 1. Default: 2.
+Shape parameter strictly greater than 1.
 }
- \item{niter}{
-Number of Newton-Raphson iterations. Default: 50.
+ \item{tol}{
+Tolerance in the stopping criterion. Default: 1e-08.
 }
 }
 \details{
