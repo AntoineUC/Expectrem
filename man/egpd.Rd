@@ -8,7 +8,7 @@
 This function computes expectiles of the Generalized Pareto Distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-egpd(probs, alpha, niter=50)
+egpd(probs, alpha, tol=1e-08)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,8 +18,8 @@ Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} 
 \item{alpha}{
 Parameter strictly greater than 1.
 }
- \item{niter}{
-Number of Newton-Raphson iterations. Default: 50.
+ \item{tol}{
+Tolerance in the stopping criterion. Default: 1e-08.
 }
 }
 \details{
