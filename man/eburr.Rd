@@ -8,7 +8,7 @@
 This function computes the expectiles of the Burr distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-eburr(probs, a,b,tol=1e-08)
+eburr(probs, a, b, tol=1e-08, maxiter=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
