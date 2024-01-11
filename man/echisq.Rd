@@ -8,7 +8,7 @@
 This function computes the expectiles of the chi-squared distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-echisq(probs, df, tol=1e-08)
+echisq(probs, df, tol=1e-08, maxiter=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
