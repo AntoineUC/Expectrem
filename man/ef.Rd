@@ -8,7 +8,7 @@
 This function computes the expectiles of the F distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-ef(probs, df1, df2, tol=1e-08)
+ef(probs, df1, df2, tol=1e-08, maxiter=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,6 +23,9 @@ Degree of freedom 2. Must be strictly greater than 2.
 }
  \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
+}
+\item{maxiter}{
+Maximum number of iterations. Default: 100.
 }
 }
 \details{
