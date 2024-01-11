@@ -1,4 +1,4 @@
-elnorm=function (probs, mu = 0, sigma = 1, tol=1e-08,maxiter=100) 
+elnorm=function (probs, mu = 0, sigma = 1, tol=1e-08, maxiter=100) 
 {
   if (min(probs) < 0 || max(probs) > 1) {
     stop("only asymmetries between 0 and 1 allowed.")
