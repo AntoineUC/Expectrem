@@ -9,26 +9,23 @@
 This function computes empirical expectiles corresponding to the given probabilities.
 }
 \usage{
-expect(x, probs, dec = 4, tol = 1e-06, niter = 20)
+expect(X, probs, tol = 1e-08, maxiter = 100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
+  \item{X}{
 %%     ~~Describe \code{X} here~~
 Data vector.
 }
   \item{probs}{
 %%     ~~Describe \code{alphas} here~~
-Numeric vector of probabilities with values in [0,1].
-}
-  \item{dec}{
-Number of digits (default: 4).
+Numeric vector of probabilities with values in (0,1).
 }
 \item{tol}{
-Tolerance (default: 1e-06).
+Tolerance (default: 1e-08).
 }
-\item{niter}{
-Number of iterations (default: 20).
+\item{maxiter}{
+Maximum number of iterations (default: 100).
 }
 }
 \details{
@@ -47,7 +44,7 @@ This function is the expectile function, coming from the package expectreg.
 }
 \author{
 %%  ~~who you are~~
-Fabian Otto-Sobotka
+Antoine Usseglio-Carleve
 }
 \note{
 %%  ~~further notes~~
