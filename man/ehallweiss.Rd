@@ -8,7 +8,7 @@
 This function computes the expectiles of the Hall-Weiss distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-ehallweiss(probs, alpha, beta, tol=1e-08)
+ehallweiss(probs, alpha, beta, tol=1e-08, maxiter=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,6 +23,9 @@ Second-order parameter strictly greater than 0.
 }
  \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
+}
+\item{maxiter}{
+Maximum number of iterations. Default: 100.
 }
 }
 \details{
