@@ -8,7 +8,7 @@
 This function computes the expectiles of the Pareto distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-epareto(probs, alpha, tol=1e-08)
+epareto(probs, alpha, tol=1e-08, maxiter=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -20,6 +20,9 @@ Shape parameter strictly greater than 1.
 }
  \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
+}
+\item{maxiter}{
+Maximum number of iterations. Default: 100.
 }
 }
 \details{
