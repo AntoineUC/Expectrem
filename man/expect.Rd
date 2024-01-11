@@ -9,7 +9,7 @@
 This function computes empirical expectiles corresponding to the given probabilities.
 }
 \usage{
-expect(X, probs, tol = 1e-08, maxiter = 100)
+expect(X, probs)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -20,12 +20,6 @@ Data vector.
   \item{probs}{
 %%     ~~Describe \code{alphas} here~~
 Numeric vector of probabilities with values in (0,1).
-}
-\item{tol}{
-Tolerance (default: 1e-08).
-}
-\item{maxiter}{
-Maximum number of iterations (default: 100).
 }
 }
 \details{
