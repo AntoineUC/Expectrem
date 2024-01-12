@@ -1,4 +1,4 @@
-edagum=function(probs,a,b,tol=1e-08,maxiter=100){
+edagum=function(probs, a, b, start.pt=(probs^(-1/b)-1)^(-1/a), tol=1e-08, maxiter=100){
   
   if (min(probs) <= 0 || max(probs) >= 1){
     stop("only asymmetries between 0 and 1 allowed.")
@@ -12,7 +12,11 @@ edagum=function(probs,a,b,tol=1e-08,maxiter=100){
     stop("Expectiles do not exist if a is less than 1.")
   }
   
-  e = rep(b*beta(b+1/a,1-1/a), length(probs))
+  if (length(probs) != length(start.pt)) {
+    stop("probs and start.pt must have the same length.")
+  }
+  
+  e = start.pt
   gap=1
   i=1
   while (gap >= tol && i<= maxiter) {
