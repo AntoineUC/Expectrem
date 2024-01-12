@@ -1,15 +1,23 @@
-ef=function (probs, df1, df2, tol=1e-08, maxiter=100) 
+ef=function (probs, df1, df2, start.pt=qf(probs,df1,df2), tol=1e-08, maxiter=100) 
 {
+  
   if (min(probs) <= 0 || max(probs) >= 1) {
     stop("only asymmetries between 0 and 1 allowed.")
   }
+  
   if (df2 <= 2) {
     stop("df2 must be strictly greater than 2.")
   }
+  
   if (df1 <= 0) {
     stop("df1 must be strictly greater than 0.")
   }
-  e = rep(df2/(df2-2), length(probs))
+  
+  if (length(probs) != length(start.pt)) {
+    stop("probs and start.pt must have the same length.")
+  }
+  
+  e = start.pt
   gap=1
   i=1
   while (gap >= tol && i<= maxiter) {
