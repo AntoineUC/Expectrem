@@ -19,7 +19,7 @@ Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} 
 Degrees of freedom. Must be strictly positive.
 }
 \item{start.pt}{
-    Vector of starting points. Default: quantiles of the chi-squared distribution.
+Vector of starting points. Default: quantiles of the chi-squared distribution.
 }
  \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
