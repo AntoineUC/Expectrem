@@ -8,7 +8,7 @@
 This function computes the expectiles of the Burr distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-eburr(probs, a, b, tol=1e-08, maxiter=100)
+eburr(probs, a, b, start.pt=((1-probs)^(-1/b)-1)^(1/a), tol=1e-08, maxiter=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -20,6 +20,9 @@ Parameter of the Burr distribution. Must be strictly positive.
 }
 \item{b}{
 Parameter of the Burr distribution. Must be strictly greater than 1/a.
+}
+\item{start.pt}{
+Vector of starting points. Default: quantiles of the Burr distribution.
 }
 \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
