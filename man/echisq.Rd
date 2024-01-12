@@ -8,7 +8,7 @@
 This function computes the expectiles of the chi-squared distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-echisq(probs, df, tol=1e-08, maxiter=100)
+echisq(probs, df, start.pt=qchisq(probs,df), tol=1e-08, maxiter=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -17,6 +17,9 @@ Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} 
 }
 \item{df}{
 Degrees of freedom. Must be strictly positive.
+}
+\item{start.pt}{
+    Vector of starting points. Default: quantiles of the chi-squared distribution.
 }
  \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
