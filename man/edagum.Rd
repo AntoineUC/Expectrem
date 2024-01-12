@@ -29,7 +29,7 @@ Maximum number of iterations. Default: 100.
 }
 }
 \details{
-The considered distribution has c.s.f. (1+ gamma^(-a))^(-b). Note that this distribution is heavy-tailed with first and second tail indices gamma=1/a and rho=-1, respectively.%%  ~~ If necessary, more details than the description above ~~
+The considered distribution has c.s.f. (1+ x^(-a))^(-b). Note that this distribution is heavy-tailed with first and second tail indices gamma=1/a and rho=-1, respectively.%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
