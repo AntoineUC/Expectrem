@@ -8,7 +8,7 @@
 This function computes the expectiles of the Dagum distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-edagum(probs, a,b,tol=1e-08,maxiter=100)
+edagum(probs, a, b, start.pt=(probs^(-1/b)-1)^(-1/a), tol=1e-08, maxiter=100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,6 +21,9 @@ Parameter of the Dagum distribution. Must be strictly greater than 1.
 \item{b}{
 Parameter of the Dagum distribution. Must be strictly positive.
 }
+\item{start.pt}{
+Vector of starting points. Default: quantiles of the Dagum distribution.
+}
 \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
 }
@@ -29,7 +32,7 @@ Maximum number of iterations. Default: 100.
 }
 }
 \details{
-The considered distribution has c.s.f. (1+ x^(-a))^(-b). Note that this distribution is heavy-tailed with first and second tail indices gamma=1/a and rho=-1, respectively.%%  ~~ If necessary, more details than the description above ~~
+The considered distribution has c.d.f. (1+ x^(-a))^(-b). Note that this distribution is heavy-tailed with first and second tail indices gamma=1/a and rho=-1, respectively.%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
