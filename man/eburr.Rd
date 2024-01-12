@@ -29,7 +29,7 @@ Maximum number of iterations. Default: 100.
 }
 }
 \details{
-The considered distribution has c.s.f. (1+ gamma^a)^(-b). Note that this distribution is sometimes parametrized with gamma=1/(a*b) and rho=-1/b.%%  ~~ If necessary, more details than the description above ~~
+The considered distribution has c.s.f. (1+ x^a)^(-b). Note that this distribution is sometimes parametrized with gamma=1/(a*b) and rho=-1/b.%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
