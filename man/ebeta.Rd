@@ -9,7 +9,7 @@
   %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-  ebeta(probs, shape1, shape2, start.pt=qbeta(probs,shape1,shape2), tol=1e-08, maxiter=100)
+  ebeta(probs, shape1, shape2, start.pt="quantile", tol=1e-08, maxiter=100, x0=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,13 +23,16 @@
     Second shape parameter. Must be strictly positive.
   }
   \item{start.pt}{
-    Vector of starting points. Default: qbeta(probs,shape1,shape2).
+    Choice of the starting points. Mean of the Beta distribution if "mean", quantiles (levels probs) of the Beta distribution if "quantile". The starting point is chosen manually if "custom".  
   }
   \item{tol}{
     Tolerance in the stopping criterion. Default: 1e-08.
   }
   \item{maxiter}{
     Maximum number of iterations. Default: 100.
+  }
+  \item{x0}{
+    Value of the starting point (only if start.pt="custom").
   }
 }
 \details{
