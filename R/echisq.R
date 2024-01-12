@@ -1,4 +1,4 @@
-echisq=function(probs,df,tol=1e-08,maxiter=100){
+echisq=function(probs, df, start.pt=qchisq(probs,df), tol=1e-08, maxiter=100){
   
   if (min(probs) <= 0 || max(probs) >= 1){
     stop("only asymmetries between 0 and 1 allowed.")
@@ -7,8 +7,12 @@ echisq=function(probs,df,tol=1e-08,maxiter=100){
   if(df<=0){
     stop("df must be strictly greater than 0.")
   }
+
+  if (length(probs) != length(start.pt)) {
+    stop("probs and start.pt must have the same length.")
+  }
   
-  e = rep(df, length(probs))
+  e = start.pt
   gap=1
   i=1
   while (gap >= tol && i<= maxiter) {
