@@ -1,4 +1,4 @@
-ebeta=function (probs, shape1, shape2, tol=1e-08, maxiter=100) 
+ebeta=function (probs, shape1, shape2, start.pt=qbeta(probs,shape1,shape2), tol=1e-08, maxiter=100) 
 {
   if (min(probs) <= 0 || max(probs) >= 1) {
     stop("only asymmetries between 0 and 1 allowed.")
@@ -6,7 +6,10 @@ ebeta=function (probs, shape1, shape2, tol=1e-08, maxiter=100)
   if (shape1 <= 0 || shape2 <=0) {
     stop("shape parameters must be strictly positive.")
   }
-  e = rep(shape1/(shape1+shape2), length(probs))
+  if (length(probs) != length(start.pt)) {
+    stop("probs and start.pt must have the same length.")
+  }
+  e = start.pt
   gap=1
   i=1
   while (gap >= tol && i<= maxiter) {
