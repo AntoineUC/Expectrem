@@ -8,7 +8,7 @@
   This function computes the expectiles of the Weibull distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-  eweibull(probs, k, tol=1e-08, maxiter=100)
+  eweibull(probs, k, start.pt="quantile", tol=1e-08, maxiter=100, x0=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,12 +18,18 @@
   \item{k}{
     Shape parameter strictly positive. 
   }
+  \item{start.pt}{
+    Choice of the starting points. Mean of the Weibull distribution if "mean", quantiles (levels probs) of the Weibull distribution if "quantile". The starting point is chosen manually if "custom".  
+  }
   \item{tol}{
     Tolerance in the stopping criterion. Default: 1e-08.
   }
  \item{maxiter}{
 Maximum number of iterations. Default: 100.
 }
+\item{x0}{
+    Value of the starting point (only if start.pt="custom").
+  }
 }
 \details{
   The considered distribution has c.s.f. exp(-y^k) for y>0.%%  ~~ If necessary, more details than the description above ~~
