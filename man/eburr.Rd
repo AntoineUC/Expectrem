@@ -8,7 +8,7 @@
 This function computes the expectiles of the Burr distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-eburr(probs, a, b, start.pt=((1-probs)^(-1/b)-1)^(1/a), tol=1e-08, maxiter=100)
+eburr(probs, a, b, start.pt="quantile", tol=1e-08, maxiter=100, x0=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -22,7 +22,7 @@ Parameter of the Burr distribution. Must be strictly positive.
 Parameter of the Burr distribution. Must be strictly greater than 1/a.
 }
 \item{start.pt}{
-Vector of starting points. Default: quantiles of the Burr distribution.
+  Choice of the starting points. Mean of the Burr distribution if "mean", quantiles (levels probs) of the Burr distribution if "quantile". The starting point is chosen manually if "custom".  
 }
 \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
@@ -30,9 +30,12 @@ Tolerance in the stopping criterion. Default: 1e-08.
 \item{maxiter}{
 Maximum number of iterations. Default: 100.
 }
+\item{x0}{
+  Value of the starting point (only if start.pt="custom").
+}
 }
 \details{
-The considered distribution has c.s.f. (1+ x^a)^(-b). Note that this distribution is sometimes parametrized with gamma=1/(a*b) and rho=-1/b.%%  ~~ If necessary, more details than the description above ~~
+The considered distribution has c.s.f. (1+ y^a)^(-b). Note that this distribution is sometimes parametrized with gamma=1/(a*b) and rho=-1/b.%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
