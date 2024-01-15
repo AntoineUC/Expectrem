@@ -8,7 +8,7 @@
 This function computes the expectiles of the Pareto distribution.%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-epareto(probs, alpha, tol=1e-08, maxiter=100)
+epareto(probs, alpha, start.pt="quantile", tol=1e-08, maxiter=100, x0=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,11 +18,17 @@ Numeric vector of probabilities with values in (0,1).%%     ~~Describe \code{x} 
 \item{alpha}{
 Shape parameter strictly greater than 1.
 }
+\item{start.pt}{
+  Choice of the starting points. Mean of the Pareto distribution if "mean", quantiles (levels probs) of the Pareto distribution if "quantile". The starting point is chosen manually if "custom".  
+}
  \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
 }
 \item{maxiter}{
 Maximum number of iterations. Default: 100.
+}
+\item{x0}{
+  Value of the starting point (only if start.pt="custom").
 }
 }
 \details{
