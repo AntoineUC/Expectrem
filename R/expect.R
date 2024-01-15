@@ -12,6 +12,8 @@ expect=function (X, probs) {
   if (sum(is.na(X))>0) {
     stop("X contains NA values.")
   }
+
+  n=length(X)
   
   num1=(0:(n-2))*sort(X)[1:(n-1)]-c(0,cumsum(sort(X))[1:(n-2)])
   
