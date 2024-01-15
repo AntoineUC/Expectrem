@@ -22,7 +22,7 @@ First-order parameter strictly greater than 1.
 Second-order parameter strictly greater than 0.
 }
 \item{start.pt}{
-  Choice of the starting points. Mean of the Hall-Weiss distribution if "mean", (2*(1-probs))^(-1/alpha) if "quantile". The starting point is chosen manually if "custom".  
+  Choice of the starting points. Mean of the Hall-Weiss distribution if "mean", (1-probs)^(-1/alpha) if "quantile". The starting point is chosen manually if "custom".  
 }
  \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
