@@ -17,7 +17,7 @@ ehallweiss=function (probs, alpha, beta, start.pt="quantile", tol=1e-08, maxiter
   }
   
   if(start.pt=="quantile"){
-    e=(2*(1-probs))^(-1/alpha)
+    e=(1-probs)^(-1/alpha)
   }
   
   if(start.pt=="custom"){
