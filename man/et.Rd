@@ -9,7 +9,7 @@
 This function computes the theoretical expectiles of the Student distribution.
 }
 \usage{
-et(probs, df = 2, mu = 0, sigma = 1, tol=1e-08, maxiter=100)
+et(probs, df, mu = 0, sigma = 1, start.pt="quantile", tol=1e-08, maxiter=100, x0=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -29,12 +29,18 @@ Location parameter. Default: 0.
 %%     ~~Describe \code{niter} here~~
 Scale parameter. Default: 1.
 }
+\item{start.pt}{
+  Choice of the starting points. 0 if "mean", quantiles (levels probs) of the Student distribution if "quantile". The starting point is chosen manually if "custom".  
+}
   \item{tol}{
 %%     ~~Describe \code{niter} here~~
 Tolerance in the stopping criterion. Default: 1e-08.
 }
 \item{maxiter}{
 Maximum number of iterations. Default: 100.
+}
+\item{x0}{
+  Value of the starting point (only if start.pt="custom").
 }
 }
 \details{
