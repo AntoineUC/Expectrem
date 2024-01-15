@@ -1,15 +1,15 @@
-\name{elog}
-\alias{elog}
+\name{elogis}
+\alias{elogis}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Expectiles of logistic distribution
+\title{Expectiles of Logistic distribution
 %%  ~~function to do ... ~~
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-This function computes the theoretical expectiles of the normal distribution.
+This function computes the theoretical expectiles of the Logistic distribution.
 }
 \usage{
-elog(probs, mu = 0, sigma = 1, tol=1e-08, maxiter=100)
+elogis(probs, mu = 0, sigma = 1, start.pt="quantile", tol=1e-08, maxiter=100, x0=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -25,12 +25,18 @@ Location parameter. Default: 0.
 %%     ~~Describe \code{x} here~~
 Scale parameter. Default: 1.
 }
+\item{start.pt}{
+  Choice of the starting points. 0 if "mean", quantiles (levels probs) of the Logistic distribution if "quantile". The starting point is chosen manually if "custom".  
+}
 \item{tol}{
 %%     ~~Describe \code{x} here~~
 Tolerance in the stopping criterion. Default: 1e-08.
 }
 \item{maxiter}{
 Maximum number of iterations. Default: 100.
+}
+\item{x0}{
+  Value of the starting point (only if start.pt="custom").
 }
 }
 \details{
