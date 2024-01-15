@@ -17,7 +17,7 @@ egpd=function(probs, alpha, start.pt="quantile", tol=1e-08, maxiter=100, x0=NULL
   }
   
   if(start.pt=="quantile"){
-    e=((1-probs)^(-1/alpha)-1)*alpha
+    e=(1-probs)^(-1/alpha)
   }
   
   if(start.pt=="custom"){
