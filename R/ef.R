@@ -1,4 +1,4 @@
-ef=function (probs, df1, df2, start.pt=qf(probs,df1,df2), tol=1e-08, maxiter=100) 
+ef=function (probs, df1, df2, start.pt=qf(probs,df1,df2), tol=1e-08, maxiter=100, x0=NULL) 
 {
   
   if (min(probs) <= 0 || max(probs) >= 1) {
@@ -13,11 +13,25 @@ ef=function (probs, df1, df2, start.pt=qf(probs,df1,df2), tol=1e-08, maxiter=100
     stop("df1 must be strictly greater than 0.")
   }
   
-  if (length(probs) != length(start.pt)) {
-    stop("probs and start.pt must have the same length.")
+  if (start.pt != "mean" && start.pt != "quantile" && start.pt != "custom") {
+    stop("start.pt may be either custom, mean or quantile.")
   }
   
-  e = start.pt
+  if(start.pt=="mean"){
+    e=rep(df2/(df2-2), length(probs))
+  }
+  
+  if(start.pt=="quantile"){
+    e=qf(probs,df1,df2)
+  }
+  
+  if(start.pt=="custom"){
+    if(length(x0) != length(probs)){
+      stop("x0 and probs must have the same length.")
+    }
+    e=x0
+  }
+  
   gap=1
   i=1
   while (gap >= tol && i<= maxiter) {
