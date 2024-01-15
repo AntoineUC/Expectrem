@@ -9,7 +9,7 @@
 This function computes the expectiles of the Frechet distribution.
 }
 \usage{
-efrechet(probs, a=2, start.pt=log(1/probs)^(-1/a), tol=1e-08, maxiter=100)
+efrechet(probs, a, start.pt="quantile", tol=1e-08, maxiter=100, x0=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -22,7 +22,7 @@ Numeric vector of probabilities with values in (0,1).
 Parameter (strictly greater than 1) of the Frechet distribution.
 }
 \item{start.pt}{
-  Vector of starting points. Default: quantiles of the Frechet distribution.
+  Choice of the starting points. Mean of the Frechet distribution if "mean", quantiles (levels probs) of the Frechet distribution if "quantile". The starting point is chosen manually if "custom".  
 }
 \item{tol}{
 Tolerance in the stopping criterion. Default: 1e-08.
@@ -30,8 +30,12 @@ Tolerance in the stopping criterion. Default: 1e-08.
 \item{maxiter}{
 Maximum number of iterations. Default: 100.
 }
+\item{x0}{
+  Value of the starting point (only if start.pt="custom").
+}
 }
 \details{
+The considered distribution has c.d.f. exp(-y^(-a)), y>0.
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
