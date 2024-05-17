@@ -1,6 +1,6 @@
 Package: Expectrem
 Type: Package
-Title: Bias-reduced estimation of extreme value index and extreme quantiles and expectiles
+Title: Bias-reduced estimation of extreme value index and extreme quantiles, expectiles and Expected Shortfalls
 Version: 0.1.0
 Author: Antoine Usseglio-Carleve
 Maintainer: Antoine Usseglio-Carleve <antoine.usseglio-carleve@univ-avignon.fr>
