@@ -1,7 +1,7 @@
 \name{flood_data}
 \alias{flood_data}
 \docType{data}
-\title{
+\title{Flood claims amounts in USA in 2017.
 %%   ~~ data name/kind ... ~~
 }
 \description{Flood claims amounts in USA in 2017.
