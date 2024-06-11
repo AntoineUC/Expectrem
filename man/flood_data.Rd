@@ -1,18 +1,18 @@
 \name{flood_data}
 \alias{flood_data}
 \docType{data}
-\title{Flood claims amounts in USA in 2017.
+\title{Flood claim amounts in USA in 2012 and 2017.
 %%   ~~ data name/kind ... ~~
 }
-\description{Flood claims amounts in USA in 2017.
+\description{Flood claim amounts in USA in 2012 and 2017.
 %%  ~~ A concise (1-5 lines) description of the dataset. ~~
 }
 \usage{data("flood_data")}
 \format{
-  A list of 2 vectors of claim amounts (of sizes 1,131 and 925).
+  A list of 4 vectors of claim amounts (of sizes 555, 402, 1,131 and 925).
 }
 \details{
-Flood claims amounts (buildingDamageAmount) in USA caused by a stream, river, or lake overflow occured in 2017, in areas rated A (Special Flood with no Base Flood Elevation on FIRM, n = 1, 131) and B (Moderate Flood from primary water source, n = 925).
+Flood claim amounts (buildingDamageAmount) in USA caused by a stream, river, or lake overflow occured in 2012 and 2017, in areas rated A (Special Flood with no Base Flood Elevation on FIRM) and B (Moderate Flood from primary water source).
 }
 \source{
 %%  ~~ reference to a publication or URL from which the data were obtained ~~
