@@ -34,11 +34,11 @@ extES=function(X,k,tau,estim="Moment",method="direct",ci.level=0.95,n.bootstrap=
     stop("estim may be either Hill or Moment.")
   }
   
-  quant=quantile(X,1-k/n,type=1)
+  quant=quantile(X,1-k/n,type=1,names=F)
   
-  M1=mean(log(quantile(X,1-(0:(k-1))/n,type=1)/quantile(X,1-k/n,type=1)))
+  M1=mean(log(quantile(X,1-(0:(k-1))/n,type=1,names=F)/quantile(X,1-k/n,type=1,names=F)))
   
-  M2=mean(log(quantile(X,1-(0:(k-1))/n,type=1)/quantile(X,1-k/n,type=1))^2)
+  M2=mean(log(quantile(X,1-(0:(k-1))/n,type=1,names=F)/quantile(X,1-k/n,type=1,names=F))^2)
   
   M=M1+1-0.5*(1-M1^2/M2)^(-1)
   
@@ -98,9 +98,9 @@ extES=function(X,k,tau,estim="Moment",method="direct",ci.level=0.95,n.bootstrap=
     
     ctehat=cteint+ahat/(1-M)*(Int1)
     
-    Lup=quantile(Ln,1-(1-ci.level)/2,type=8)
+    Lup=quantile(Ln,1-(1-ci.level)/2,type=8,names=F)
     
-    Ldown=quantile(Ln,(1-ci.level)/2,type=8)
+    Ldown=quantile(Ln,(1-ci.level)/2,type=8,names=F)
     
     cteup=ctehat+ahat*Lup
     
