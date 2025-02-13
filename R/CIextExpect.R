@@ -53,7 +53,7 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
     if(gammahat>1){
       stop("Tail index greater than 1 ! Expectile does probably not exist !")
     }
-    qtp = quantile(X, 1 - k/n)*(1/gammahat-1)^(-gammahat)
+    qtp = quantile(X, 1 - k/n,names=F)*(1/gammahat-1)^(-gammahat)
     r = (1 - mean(X)/qtp) * (n/(n - 2 * k)) * (1 + mopest$beta * 
                                                  gammahat * Fbar(X, qtp)^(-mopest$rho)/(gammahat * (1 - 
                                                                                                       mopest$rho - gammahat)))^(-1)
@@ -62,7 +62,7 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
                                                            1)^(-mopest$rho) * (1 - tau)^(-mopest$rho)/(gammahat * 
                                                                                                          (1 - mopest$rho - gammahat)))^(-1)
     estimpoint=(1/gammahat - 1)^(-gammahat) * quantile(X, 1 - 
-                                                         k/n) * (k/(n * (1 - tau)))^gammahat * (1 + ((k/(n * 
+                                                         k/n,names=F) * (k/(n * (1 - tau)))^gammahat * (1 + ((k/(n * 
                                                                                                            (1 - tau)))^mopest$rho - 1)/mopest$rho * mopest$beta * 
                                                                                                   gammahat * (n/k)^mopest$rho) * (1 + ((1/gammahat - 
                                                                                                                                           1)^(-mopest$rho) * rbet^(-mopest$rho) - 1)/mopest$rho * 
@@ -83,7 +83,7 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
     
     Fbarhat=mean(X>expect(X,1-k/n))
     
-    biasPS=-gammahat*(1/gammahat-1)^gammahat*mean(X)*sqrt(k)/quantile(X,1-k/n)
+    biasPS=-gammahat*(1/gammahat-1)^gammahat*mean(X)*sqrt(k)/quantile(X,1-k/n,names=F)
     
     varPS=gammahat^2+2*gammahat^3*(1/gammahat-1)^gammahat/((1-gammahat)^2*log((k/n)/(1-tau)))+gammahat^2/((1-2*gammahat)*log((k/n)/(1-tau))^2)*(1+Fbarhat/(k/n))/(1+(1-2*k/n)*Fbarhat/(k/n))^2
     
@@ -199,7 +199,7 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
     if(gammahat>1){
       stop("Tail index greater than 1 ! Expectile does probably not exist !")
     }
-    qtp = quantile(X, 1 - k/n)*(1/gammahat-1)^(-gammahat)
+    qtp = quantile(X, 1 - k/n,names=F)*(1/gammahat-1)^(-gammahat)
     r = (1 - mean(X)/qtp) * (n/(n - 2 * k)) * (1 + mopest$beta * 
                                                  gammahat * Fbar(X, qtp)^(-mopest$rho)/(gammahat * (1 - 
                                                                                                       mopest$rho - gammahat)))^(-1)
@@ -208,12 +208,12 @@ CIextExpect=function(X, k = trunc(length(X)/10), tau, method = "direct",ci.level
                                                            1)^(-mopest$rho) * (1 - tau)^(-mopest$rho)/(gammahat * 
                                                                                                          (1 - mopest$rho - gammahat)))^(-1)
     estimpoint=(1/gammahat - 1)^(-gammahat) * quantile(X, 1 - 
-                                                         k/n) * (k/(n * (1 - tau)))^gammahat * (1 + ((k/(n * 
+                                                         k/n,names=F) * (k/(n * (1 - tau)))^gammahat * (1 + ((k/(n * 
                                                                                                            (1 - tau)))^mopest$rho - 1)/mopest$rho * mopest$beta * 
                                                                                                   gammahat * (n/k)^mopest$rho) * (1 + ((1/gammahat - 
                                                                                                                                           1)^(-mopest$rho) * rbet^(-mopest$rho) - 1)/mopest$rho * 
                                                                                                                                     mopest$beta * gammahat * (1 - tau)^(-mopest$rho))/(rbet^gammahat)
-    quanthat=quantile(X,1-k/n)
+    quanthat=quantile(X,1-k/n,names=F)
     
     expectint=expect(X,1-k/n)
     
