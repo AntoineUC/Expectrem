@@ -1,4 +1,6 @@
 extES=function(X,k,tau,estim="Moment",method="direct",ci.level=0.95,n.bootstrap=10000){
+
+  n=length(X)
   
   if (length(ci.level) > 1) {
     stop("ci.level must be of length 1.")
@@ -31,8 +33,6 @@ extES=function(X,k,tau,estim="Moment",method="direct",ci.level=0.95,n.bootstrap=
   if(estim!="Hill" && estim!="Moment"){
     stop("estim may be either Hill or Moment.")
   }
-  
-  n=length(X)
   
   quant=quantile(X,1-k/n,type=1)
   
