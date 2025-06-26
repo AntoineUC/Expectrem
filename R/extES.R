@@ -186,7 +186,7 @@ extES=function(X,k,tau,estim="Moment",method="direct",ci.level=0.95,n.bootstrap=
     
     cteint=mean(X[which(X>quant)])
     
-    ctehat=(k/(n*(1-tau)))*M1*cteint
+    ctehat=(k/(n*(1-tau)))^M1*cteint
     
     ctedown=ctehat*exp(-M1*log(k/(n*(1-tau)))/sqrt(k)*qnorm(1-(1-ci.level)/2))
     
@@ -196,7 +196,7 @@ extES=function(X,k,tau,estim="Moment",method="direct",ci.level=0.95,n.bootstrap=
   
   if(method=="indirect" && estim=="Hill"){
     
-    ctehat=(k/(n*(1-tau)))*M1*quant/(1-M1)
+    ctehat=(k/(n*(1-tau)))^M1*quant/(1-M1)
     
     ctedown=ctehat*exp(-M1*log(k/(n*(1-tau)))/sqrt(k)*qnorm(1-(1-ci.level)/2))
     
